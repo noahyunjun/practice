@@ -1,11 +1,8 @@
-import "./App.css";
+import React from "react";
 
-function App() {
-  return (
-    <>
-      <div>test</div>
-    </>
-  );
-}
+import Game from "./components/Game";
+const App = () => {
+  return <Game />;
+};
 
 export default App;
