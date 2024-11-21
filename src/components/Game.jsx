@@ -1,8 +1,9 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Board from "./Board";
+
 import { useState } from "react";
-const Game = (props) => {
+
+const Game = () => {
   const [history, setHistory] = useState(() => [Array(9).fill(null)]);
   const [currentMove, setCurrentMove] = useState(0);
   const xIsNext = currentMove % 2 === 0;
@@ -39,6 +40,7 @@ const Game = (props) => {
   return (
     <div className="game">
       <div className="game-board">
+        <div>you are in {history.length}</div>
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </div>
       <div className="game-info">
@@ -47,7 +49,5 @@ const Game = (props) => {
     </div>
   );
 };
-
-Game.propTypes = {};
 
 export default Game;
