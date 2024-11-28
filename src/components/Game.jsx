@@ -19,7 +19,6 @@ const Game = () => {
     if (currentMove === nextMove) {
       return;
     }
-
     setCurrentMove(nextMove);
   }
 
@@ -44,6 +43,7 @@ const Game = () => {
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </div>
       <div className="game-info">
+        <button>Sorting</button>
         <ol>{moves}</ol>
       </div>
     </div>

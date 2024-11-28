@@ -17,8 +17,10 @@ const Board = ({ xIsNext, squares, onPlay }) => {
 
   const winner = calculateWinner(squares);
   let status;
+  let winSpot = [];
   if (winner) {
-    status = "Winner: " + winner;
+    winSpot = winner.winSpot;
+    status = "Winner: " + winner.man;
   } else {
     status = "Next player: " + (xIsNext ? "X" : "O");
   }
@@ -41,7 +43,7 @@ const Board = ({ xIsNext, squares, onPlay }) => {
         squares[a] === squares[b] &&
         squares[a] === squares[c]
       ) {
-        return squares[a];
+        return { man: squares[a], winSpot: [a, b, c] };
       }
     }
     return null;
@@ -58,12 +60,18 @@ const Board = ({ xIsNext, squares, onPlay }) => {
               <Square
                 value={squares[index]}
                 onSquareClick={() => handleClick(index)}
+                style={{
+                  backgroundColor: winSpot.includes(index) ? "green" : "white",
+                }}
               />
             </>
           ) : (
             <Square
               value={squares[index]}
               onSquareClick={() => handleClick(index)}
+              style={{
+                backgroundColor: winSpot.includes(index) ? "green" : "white",
+              }}
             />
           );
         })}

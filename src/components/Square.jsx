@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Square = ({ value, onSquareClick }) => {
+const Square = ({ value, onSquareClick, style }) => {
   return (
-    <button className="square" onClick={onSquareClick}>
+    <button className="square" onClick={onSquareClick} style={style}>
       {value}
     </button>
   );
