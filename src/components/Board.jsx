@@ -7,12 +7,8 @@ const Board = ({ xIsNext, squares, onPlay }) => {
       return;
     }
     const nextSquares = squares.slice();
-    if (xIsNext) {
-      nextSquares[i] = "X";
-    } else {
-      nextSquares[i] = "O";
-    }
-    onPlay(nextSquares);
+    nextSquares[i] = xIsNext ? "X" : "O";
+    onPlay(nextSquares, i);
   }
 
   const winner = calculateWinner(squares);
