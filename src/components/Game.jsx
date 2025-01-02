@@ -50,8 +50,12 @@ const Game = () => {
           onPlay={(nextSquares, index) => handlePlay(nextSquares, index)}
         />
       </div>
+
       <div className="game-info">
         <ol>{moves}</ol>
+      </div>
+      <div>
+        <button onClick={() => {}}>next Page</button>
       </div>
     </div>
   );

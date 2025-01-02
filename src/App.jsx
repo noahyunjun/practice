@@ -1,8 +1,9 @@
 import React from "react";
 
-import Game from "./components/Game";
+import Router from "./Router";
+
 const App = () => {
-  return <Game />;
+  return <Router />;
 };
 
 export default App;
