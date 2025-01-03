@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Board from "./Board";
+import { Link } from "react-router-dom";
 
 const Game = () => {
   const [history, setHistory] = useState(() => [
@@ -36,7 +37,9 @@ const Game = () => {
     }
     return (
       <li key={move}>
-        <button onClick={() => jumpTo(move)}>{description}</button>
+        <button onClick={() => jumpTo(move)} className="font-bold">
+          {description}
+        </button>
       </li>
     );
   });
@@ -55,7 +58,9 @@ const Game = () => {
         <ol>{moves}</ol>
       </div>
       <div>
-        <button onClick={() => {}}>next Page</button>
+        <button>
+          <Link to="/Todo">Todo List</Link>
+        </button>
       </div>
     </div>
   );

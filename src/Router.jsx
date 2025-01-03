@@ -7,7 +7,7 @@ const Router = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Game />} />
-        <Route path="/n1" element={<Todo />} />
+        <Route path="/Todo" element={<Todo />} />
       </Routes>
     </BrowserRouter>
   );
