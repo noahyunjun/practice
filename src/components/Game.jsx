@@ -45,7 +45,7 @@ const Game = () => {
   });
 
   return (
-    <div className="game">
+    <div className="game grid-rows-3">
       <div className="game-board">
         <Board
           xIsNext={xIsNext}
@@ -53,14 +53,8 @@ const Game = () => {
           onPlay={(nextSquares, index) => handlePlay(nextSquares, index)}
         />
       </div>
-
       <div className="game-info">
         <ol>{moves}</ol>
-      </div>
-      <div>
-        <button>
-          <Link to="/Todo">Todo List</Link>
-        </button>
       </div>
     </div>
   );
