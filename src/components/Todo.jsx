@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
+import TodoList from "./todo/TodoList";
 
-const Todo = (props) => {
+const [list, setList] = useState([
+  { id: 0, text: "react basic", checked: true },
+  { id: 1, text: "typescript", checked: true },
+  { id: 2, text: "blogging something", checked: true },
+]);
+
+const Todo = () => {
   return (
     <div>
-      <h1 className="underline">test</h1>
+      <TodoList list={list} />
     </div>
   );
 };
