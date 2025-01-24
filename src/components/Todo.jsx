@@ -17,7 +17,9 @@ const Todo = () => {
       checked: false,
     };
     setList([...list, addData]);
+    setInputValue(" ");
   };
+
   const inputState = (e) => {
     setInputValue(e.target.value);
   };
@@ -34,6 +36,7 @@ const Todo = () => {
           type="text"
           className="border-solid border-2"
           placeholder="할일 입력"
+          value={inputValue}
           onChange={inputState}
         />
         <button className="rounded-full bg-blue-200 " onClick={addTodo}>
