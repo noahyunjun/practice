@@ -9,29 +9,35 @@ const Todo = () => {
     { id: 2, text: "blogging something", checked: true },
   ]);
   const [inputValue, setInputValue] = useState("");
-  // const addTodo = (inputValue) => {
-  //   setList([...list, inputValue]);
-  // };
-  // const inputState = (e) => {
-  //   setInputValue(e.target.value);
-  //   console.log(inputValue);
-  // };
+  const addTodo = () => {
+    const addData = {
+      id: list.length,
+      text: inputValue,
+      checked: false,
+    };
+    setList([...list, addData]);
+  };
+  const inputState = (e) => {
+    setInputValue(e.target.value);
+  };
   return (
-    <>
-      <div className="flex justify-center font-bold text-xl">Todo List</div>
+    <div className=" grid gird-row-2 justify-center">
+      <div className="font-bold text-xl ">Todo List</div>
+
       <input
         type="text"
         className="border-solid border-2"
         placeholder="할일 입력"
-        // onChange={inputState}
+        onChange={inputState}
       />
-      <button className="rounded-full bg-blue-200" /*onClick={addTodo}*/>
+      <button className="rounded-full bg-blue-200" onClick={addTodo}>
         추가
       </button>
+      <br />
       <div className="flex justify-center">
         <TodoList list={list} />
       </div>
-    </>
+    </div>
   );
 };
 

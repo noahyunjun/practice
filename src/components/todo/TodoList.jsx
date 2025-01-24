@@ -8,7 +8,6 @@ const TodoList = ({ list }) => {
     <ul>
       {list.map((item) => {
         //여기서 array 추출 (객체만 남는다)
-        //그래서 text로 접근이 가능한것
         return <TodoListItem item={item} />;
       })}
     </ul>
