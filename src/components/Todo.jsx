@@ -6,8 +6,9 @@ const Todo = () => {
   const [list, setList] = useState([
     { id: 0, text: "react basic", checked: true },
     { id: 1, text: "typescript", checked: true },
-    { id: 2, text: "blogging something", checked: true },
+    { id: 2, text: "blogging", checked: true },
   ]);
+
   const [inputValue, setInputValue] = useState("");
   const addTodo = () => {
     const addData = {
@@ -20,22 +21,29 @@ const Todo = () => {
   const inputState = (e) => {
     setInputValue(e.target.value);
   };
-  return (
-    <div className=" grid gird-row-2 justify-center">
-      <div className="font-bold text-xl ">Todo List</div>
 
-      <input
-        type="text"
-        className="border-solid border-2"
-        placeholder="할일 입력"
-        onChange={inputState}
-      />
-      <button className="rounded-full bg-blue-200" onClick={addTodo}>
-        추가
-      </button>
+  const removeList = (id) => {
+    setList(list.filter((item) => item.id !== id));
+  };
+
+  return (
+    <div className=" grid justify-center">
+      <div className="font-bold text-xl">Todo List</div>
+      <div className="place-content-center">
+        <input
+          type="text"
+          className="border-solid border-2"
+          placeholder="할일 입력"
+          onChange={inputState}
+        />
+        <button className="rounded-full bg-blue-200 " onClick={addTodo}>
+          추가
+        </button>
+      </div>
+
       <br />
-      <div className="flex justify-center">
-        <TodoList list={list} />
+      <div className="flex justify-center ">
+        <TodoList list={list} removeList={removeList} />
       </div>
     </div>
   );
