@@ -28,6 +28,14 @@ const Todo = () => {
     setList(list.filter((item) => item.id !== id));
   };
 
+  const checkhandled = (id) => {
+    setList((prev) =>
+      prev.map((item, index) => {
+        return index === id ? { ...item, checked: !item.checked } : item;
+      })
+    );
+  };
+
   return (
     <div className=" grid justify-center">
       <div className="font-bold text-xl">Todo List</div>
@@ -46,7 +54,11 @@ const Todo = () => {
 
       <br />
       <div className="flex justify-center ">
-        <TodoList list={list} removeList={removeList} />
+        <TodoList
+          list={list}
+          removeList={removeList}
+          checkhandled={checkhandled}
+        />
       </div>
     </div>
   );
