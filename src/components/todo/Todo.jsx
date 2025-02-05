@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import TodoList from "./todo/TodoList";
+import TodoList from "./TodoList";
 
 const Todo = () => {
   const [list, setList] = useState([
@@ -19,7 +19,6 @@ const Todo = () => {
     setList([...list, addData]);
     setInputValue(" ");
   };
-
   const inputState = (e) => {
     setInputValue(e.target.value);
   };
