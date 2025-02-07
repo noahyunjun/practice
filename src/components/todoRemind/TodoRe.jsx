@@ -1,10 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
+import InsertTodo from "./components/InsertTodo";
+import ListItem from "./components/ListItem";
 
-const TodoRe = (props) => {
-  return <div>re</div>;
+const TodoRe = () => {
+  return (
+    <div className="flex flex-col items-center">
+      <h1>TodoList Remind</h1>
+      <InsertTodo />
+      <ListItem />
+    </div>
+  );
 };
-
-TodoRe.propTypes = {};
 
 export default TodoRe;
