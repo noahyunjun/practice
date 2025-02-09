@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Button from "./Button";
 
 const InsertTodo = (props) => {
   return (
@@ -9,9 +10,7 @@ const InsertTodo = (props) => {
         placeholder="할일을 입력해주세요"
         className="border-2 mr-3"
       />
-      <button className="bg-blue-400 rounded-full px-2 py-1 font-mono">
-        ADD
-      </button>
+      <Button name={"ADD"} onClick={() => console.log("done")} />
     </div>
   );
 };
