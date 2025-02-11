@@ -8,8 +8,8 @@ const ListItem = ({ items, delList }) => {
       <ul>
         {items.map((item, index) => (
           <div className="flex items-center" key={index}>
-            <input type="radio" className="mr-5" checked={item.isDone} />
-            <div className="w-6">{item.id}</div>
+            <input type="radio" className="mr-5" cphecked={item.isDone} />
+            <div className="w-6">{index + 1}</div>
             <li key={index} className="2-64">
               {item.text}
             </li>

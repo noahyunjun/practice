@@ -4,9 +4,9 @@ import ListItem from "./components/ListItem";
 
 const TodoRe = () => {
   const [todoItems, setTodoItems] = useState([
-    { id: 1, text: "투두리스트 맹글기", isDone: true },
-    { id: 2, text: "독서하기", isDone: false },
-    { id: 3, text: "공부와 취직에 대한 정신적 명상 하기", isDone: false },
+    { text: "투두리스트 맹글기", isDone: true },
+    { text: "독서하기", isDone: false },
+    { text: "공부와 취직에 대한 정신적 명상 하기", isDone: false },
   ]);
 
   const addTodoList = (text) => {
