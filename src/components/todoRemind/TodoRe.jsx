@@ -12,7 +12,7 @@ const TodoRe = () => {
   const addTodoList = (text) => {
     const arr = [...todoItems];
     arr.push({
-      id: arr.length + 1,
+      id: todoItems[todoItems.length - 1].id + 1,
       text: text,
       isDone: false,
     });
