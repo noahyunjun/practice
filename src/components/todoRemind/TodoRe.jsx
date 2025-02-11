@@ -19,11 +19,17 @@ const TodoRe = () => {
     setTodoItems(arr);
   };
 
+  const deleteTodoList = (id) => {
+    const arr = [...todoItems];
+    arr.splice(id, 1);
+    setTodoItems(arr);
+  };
+
   return (
     <div className="container mx-auto px-4 flex flex-col items-center">
       <h1>TodoList Remind</h1>
       <InsertTodo items={todoItems} addList={addTodoList} />
-      <ListItem items={todoItems} />
+      <ListItem items={todoItems} delList={deleteTodoList} />
     </div>
   );
 };

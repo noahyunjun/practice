@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Button from "./Button";
 
-const ListItem = ({ items }) => {
+const ListItem = ({ items, delList }) => {
   return (
     <div className="mt-8">
       <ul>
@@ -13,7 +13,11 @@ const ListItem = ({ items }) => {
             <li key={index} className="2-64">
               {item.text}
             </li>
-            <Button name="del" className={"ml-3"} />
+            <Button
+              name="del"
+              className={"ml-3"}
+              onClick={() => delList(index)}
+            />
           </div>
         ))}
       </ul>
@@ -23,6 +27,7 @@ const ListItem = ({ items }) => {
 
 ListItem.propTypes = {
   items: PropTypes.array.isRequired,
+  delList: PropTypes.func.isRequired,
 };
 
 export default ListItem;
