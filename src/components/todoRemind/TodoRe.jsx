@@ -4,9 +4,9 @@ import ListItem from "./components/ListItem";
 
 const TodoRe = () => {
   const [todoItems, setTodoItems] = useState([
-    { text: "투두리스트 맹글기", isDone: true },
-    { text: "독서하기", isDone: false },
-    { text: "공부와 취직에 대한 정신적 명상 하기", isDone: false },
+    { id: 1, text: "투두리스트 맹글기", isDone: true },
+    { id: 2, text: "독서하기", isDone: false },
+    { id: 3, text: "공부와 취직에 대한 정신적 명상 하기", isDone: false },
   ]);
 
   const addTodoList = (text) => {
@@ -25,11 +25,23 @@ const TodoRe = () => {
     setTodoItems(arr);
   };
 
+  const toggleIsDone = (id) => {
+    setTodoItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === id ? { ...item, isDone: !item.isDone } : item
+      )
+    );
+  };
+
   return (
     <div className="container mx-auto px-4 flex flex-col items-center">
       <h1>TodoList Remind</h1>
       <InsertTodo items={todoItems} addList={addTodoList} />
-      <ListItem items={todoItems} delList={deleteTodoList} />
+      <ListItem
+        items={todoItems}
+        delList={deleteTodoList}
+        onClick={toggleIsDone}
+      />
     </div>
   );
 };
