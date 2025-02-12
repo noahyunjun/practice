@@ -1,8 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Game from "./components/tiktaktok/Game";
 import Todo from "./components/todo/Todo";
-import RoutingPage from "./components/RoutingPage";
+import RoutingPage from "./RoutingPage";
 import TodoRemind from "./components/todoRemind/TodoRe";
+
 const Router = () => {
   return (
     <BrowserRouter>
