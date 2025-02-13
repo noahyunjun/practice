@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import InsertTodo from "./components/InsertTodo";
 import ListItem from "./components/ListItem";
+import useStore from "./useTodoStore";
 
 const TodoRe = () => {
   const [todoItems, setTodoItems] = useState(() => {
@@ -35,6 +36,8 @@ const TodoRe = () => {
     window.localStorage.setItem("todolist", JSON.stringify(todoItems));
   }, [todoItems]);
 
+  const { count, incrementCount, removeCount } = useStore();
+
   return (
     <div className="container mx-auto px-4 flex flex-col items-center">
       <h1>TodoList Remind</h1>
@@ -44,6 +47,11 @@ const TodoRe = () => {
         delList={deleteTodoList}
         onClick={toggleIsDone}
       />
+      <div> Count : {count}</div>
+      <div>
+        <button onClick={() => incrementCount()}>Up!</button>
+        <button onClick={() => removeCount()}>reset!</button>
+      </div>
     </div>
   );
 };
