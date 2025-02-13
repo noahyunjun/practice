@@ -1,18 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import InsertTodo from "./components/InsertTodo";
 import ListItem from "./components/ListItem";
 
 const TodoRe = () => {
-  const [todoItems, setTodoItems] = useState([
-    { id: 1, text: "투두리스트 맹글기", isDone: true },
-    { id: 2, text: "독서하기", isDone: false },
-    { id: 3, text: "공부와 취직에 대한 정신적 명상 하기", isDone: false },
-  ]);
+  const [todoItems, setTodoItems] = useState(() => {
+    const saveItems = localStorage.getItem("todolist");
+    return saveItems ? JSON.parse(saveItems) : [];
+  });
 
   const addTodoList = (text) => {
     const arr = [...todoItems];
     arr.push({
-      id: todoItems[todoItems.length - 1].id + 1,
+      id: todoItems.length === 0 ? 1 : todoItems[todoItems.length - 1].id + 1,
       text: text,
       isDone: false,
     });
@@ -32,6 +31,9 @@ const TodoRe = () => {
       )
     );
   };
+  useEffect(() => {
+    window.localStorage.setItem("todolist", JSON.stringify(todoItems));
+  }, [todoItems]);
 
   return (
     <div className="container mx-auto px-4 flex flex-col items-center">
@@ -42,6 +44,13 @@ const TodoRe = () => {
         delList={deleteTodoList}
         onClick={toggleIsDone}
       />
+      <button
+        onClick={() => {
+          console.log(JSON.stringify(todoItems));
+        }}
+      >
+        Json Parse
+      </button>
     </div>
   );
 };
