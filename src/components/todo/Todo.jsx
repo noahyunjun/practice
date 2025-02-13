@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 import TodoList from "./TodoList";
-import useStore from "../todoRemind/useTodoStore";
 
 const Todo = () => {
   const [list, setList] = useState([
@@ -36,7 +34,6 @@ const Todo = () => {
     );
   };
 
-  const { count, incrementCount, removeCount } = useStore();
   return (
     <div className=" grid justify-center">
       <div className="font-bold text-xl">Todo List</div>
@@ -60,13 +57,6 @@ const Todo = () => {
           removeList={removeList}
           checkhandled={checkhandled}
         />
-      </div>
-
-      <div>
-        <h1>zustand Test</h1>
-        <div>Count: {count}</div>
-        <button onClick={() => incrementCount()}>UP</button>
-        <button onClick={() => removeCount()}>reset</button>
       </div>
     </div>
   );
