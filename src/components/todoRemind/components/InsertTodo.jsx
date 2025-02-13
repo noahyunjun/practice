@@ -9,6 +9,9 @@ const InsertTodo = ({ addList }) => {
     addList(inputValue);
     setInputValue("");
   };
+
+  const enterEvent = (e) => e.key === "Enter" && handleAddList();
+
   return (
     <div>
       <input
@@ -17,6 +20,12 @@ const InsertTodo = ({ addList }) => {
         className="border-2 mr-3"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            enterEvent(e);
+          }
+        }}
       />
       <Button name={"ADD"} onClick={handleAddList} />
     </div>

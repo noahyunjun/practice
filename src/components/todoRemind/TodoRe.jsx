@@ -44,13 +44,6 @@ const TodoRe = () => {
         delList={deleteTodoList}
         onClick={toggleIsDone}
       />
-      <button
-        onClick={() => {
-          console.log(JSON.stringify(todoItems));
-        }}
-      >
-        Json Parse
-      </button>
     </div>
   );
 };
