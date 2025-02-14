@@ -4,13 +4,20 @@ import Button from "./Button";
 
 const InsertTodo = ({ addList }) => {
   const [inputValue, setInputValue] = useState("");
+  const [isComposing, setIsComposing] = useState(false);
 
   const handleAddList = () => {
+    if (!inputValue.trim()) return; // 빈 값 방지
     addList(inputValue);
     setInputValue("");
   };
 
-  const enterEvent = (e) => e.key === "Enter" && handleAddList();
+  const enterEvent = (e) => {
+    if (e.key === "Enter" && !isComposing) {
+      e.preventDefault();
+      handleAddList();
+    }
+  };
 
   return (
     <div>
@@ -20,12 +27,9 @@ const InsertTodo = ({ addList }) => {
         className="border-2 mr-3"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
-        onKeyDown={(e) => {
-          if (e.key === "Enter") {
-            e.preventDefault();
-            enterEvent(e);
-          }
-        }}
+        onKeyDown={enterEvent}
+        onCompositionStart={() => setIsComposing(true)}
+        onCompositionEnd={() => setIsComposing(false)}
       />
       <Button name={"ADD"} onClick={handleAddList} />
     </div>
