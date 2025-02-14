@@ -4,13 +4,11 @@ const useTodoStore = create((set) => ({
   todos: JSON.parse(localStorage.getItem("todos")) || [],
   addTodo: (text) => {
     set((state) => {
+      const { todos } = state;
       const updateTodos = [
-        ...state.todos,
+        ...todos,
         {
-          id:
-            state.todos.length === 0
-              ? 1
-              : state.todos[state.todos.length - 1].id + 1,
+          id: todos.length === 0 ? 1 : todos[todos.length - 1].id + 1,
           text: text,
           isDone: false,
         },
@@ -21,9 +19,19 @@ const useTodoStore = create((set) => ({
   },
   delTodo: (id) => {
     set((state) => {
-      const updateTodos = [...state.todos];
+      const { todos } = state;
+      const updateTodos = [...todos];
       updateTodos.splice(id, 1);
       localStorage.setItem("todos", JSON.stringify(updateTodos));
+      return { todos: updateTodos };
+    });
+  },
+  checkIsDone: (id) => {
+    set((state) => {
+      const { todos } = state;
+      const updateTodos = todos.map((item) =>
+        item.id === id ? { ...item, isDone: !item.isDone } : item
+      );
       return { todos: updateTodos };
     });
   },
