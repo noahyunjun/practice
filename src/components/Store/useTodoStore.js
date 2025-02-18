@@ -35,6 +35,15 @@ const useTodoStore = create((set) => ({
       return { todos: updateTodos };
     });
   },
+  clearTodoList: () => {
+    set((state) => {
+      const { todos } = state;
+      const updateTodos = [...todos];
+      updateTodos.splice(0);
+      localStorage.setItem("todos", JSON.stringify(updateTodos));
+      return { todos: updateTodos };
+    });
+  },
 }));
 
 export default useTodoStore;

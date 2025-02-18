@@ -7,7 +7,7 @@ const InsertTodo = ({ addList }) => {
   const [isComposing, setIsComposing] = useState(false);
 
   const handleAddList = () => {
-    if (!inputValue.trim()) return; // 빈 값 방지
+    if (!inputValue.trim()) return;
     addList(inputValue);
     setInputValue("");
   };
