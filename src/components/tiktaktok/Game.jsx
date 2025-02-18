@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Board from "./Board";
+import NavigationButton from "../../NavigationButton";
 
 const Game = () => {
   const [history, setHistory] = useState([
@@ -50,6 +51,7 @@ const Game = () => {
       <div className="mt-4 md:mt-0">
         <ol className="list-decimal list-inside">{moves}</ol>
       </div>
+      <NavigationButton key="/" path="/" label="Home" />
     </div>
   );
 };

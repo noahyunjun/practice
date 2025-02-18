@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TodoList from "./TodoList";
+import NavigationButton from "../../NavigationButton";
 
 const Todo = () => {
   const [list, setList] = useState([
@@ -58,6 +59,7 @@ const Todo = () => {
           checkhandled={checkhandled}
         />
       </div>
+      <NavigationButton key="/" path="/" label="Home" />
     </div>
   );
 };
