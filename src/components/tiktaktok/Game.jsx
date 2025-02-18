@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Board from "./Board";
 
 const Game = () => {
-  const [history, setHistory] = useState(() => [
+  const [history, setHistory] = useState([
     { squares: Array(9).fill(null), location: null },
   ]);
   const [currentMove, setCurrentMove] = useState(0);
@@ -28,15 +28,14 @@ const Game = () => {
   }
 
   const moves = history.map((step, move) => {
-    let description;
-    if (move > 0) {
-      description = `Go to move #${move} ${step.location}`;
-    } else {
-      description = "Go to game start";
-    }
+    let description =
+      move > 0 ? `Go to move #${move} ${step.location}` : "Go to game start";
     return (
-      <li key={move}>
-        <button onClick={() => jumpTo(move)} className="font-bold">
+      <li key={move} className="mb-2">
+        <button
+          onClick={() => jumpTo(move)}
+          className="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600"
+        >
           {description}
         </button>
       </li>
@@ -44,16 +43,12 @@ const Game = () => {
   });
 
   return (
-    <div className="game grid-rows-3">
-      <div className="game-board">
-        <Board
-          xIsNext={xIsNext}
-          squares={currentSquares}
-          onPlay={(nextSquares, index) => handlePlay(nextSquares, index)}
-        />
+    <div className="flex flex-col md:flex-row items-center justify-center gap-6 p-4">
+      <div className="flex flex-col items-center">
+        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </div>
-      <div className="game-info">
-        <ol>{moves}</ol>
+      <div className="mt-4 md:mt-0">
+        <ol className="list-decimal list-inside">{moves}</ol>
       </div>
     </div>
   );

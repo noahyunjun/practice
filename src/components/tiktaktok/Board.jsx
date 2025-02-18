@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Square from "./Square";
+
 const Board = ({ xIsNext, squares, onPlay }) => {
   function handleClick(i) {
     if (calculateWinner(squares) || squares[i]) {
@@ -16,9 +17,9 @@ const Board = ({ xIsNext, squares, onPlay }) => {
   let winSpot = [];
   if (winner) {
     winSpot = winner.winSpot;
-    status = "Winner: " + winner.man;
+    status = `Winner: ${winner.man}`;
   } else {
-    status = "Next player: " + (xIsNext ? "X" : "O");
+    status = `Next player: ${xIsNext ? "X" : "O"}`;
   }
 
   function calculateWinner(squares) {
@@ -46,33 +47,24 @@ const Board = ({ xIsNext, squares, onPlay }) => {
   }
 
   return (
-    <>
-      <div className="status">{status}</div>
-      <div>
-        {squares.map((history, index) => {
-          return index % 3 === 0 ? (
-            <>
-              <div className="board-row"></div>
-              <Square
-                value={squares[index]}
-                onSquareClick={() => handleClick(index)}
-                style={{
-                  backgroundColor: winSpot.includes(index) ? "green" : "white",
-                }}
-              />
-            </>
-          ) : (
-            <Square
-              value={squares[index]}
-              onSquareClick={() => handleClick(index)}
-              style={{
-                backgroundColor: winSpot.includes(index) ? "green" : "white",
-              }}
-            />
-          );
-        })}
+    <div className="text-center">
+      <div className="mb-4 text-lg font-semibold">{status}</div>
+      <div className="grid grid-cols-3 gap-1">
+        {squares.map((value, index) => (
+          <Square
+            key={index}
+            value={value}
+            onSquareClick={() => handleClick(index)}
+            className={`w-12 h-12 flex items-center justify-center border border-gray-400 
+              text-lg font-bold ${
+                winSpot.includes(index)
+                  ? "bg-green-400"
+                  : "bg-white dark:bg-gray-700"
+              }`}
+          />
+        ))}
       </div>
-    </>
+    </div>
   );
 };
 
