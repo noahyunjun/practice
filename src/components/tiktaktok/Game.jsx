@@ -35,7 +35,7 @@ const Game = () => {
       <li key={move} className="mb-2">
         <button
           onClick={() => jumpTo(move)}
-          className="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600"
+          className="px-3 py-1 bg-blue-500 dark:bg-blue-700 text-white rounded hover:bg-blue-600 dark:hover:bg-blue-800"
         >
           {description}
         </button>
@@ -44,14 +44,19 @@ const Game = () => {
   });
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center gap-6 p-4">
+    <div className="flex flex-col md:flex-row items-center justify-center gap-6 p-4 min-h-screen bg-white dark:bg-gray-900 text-black dark:text-white">
       <div className="flex flex-col items-center">
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </div>
       <div className="mt-4 md:mt-0">
         <ol className="list-decimal list-inside">{moves}</ol>
       </div>
-      <NavigationButton key="/" path="/" label="Home" />
+      <NavigationButton
+        key="/"
+        path="/"
+        label="Home"
+        className="dark:bg-gray-700 dark:text-white"
+      />
     </div>
   );
 };

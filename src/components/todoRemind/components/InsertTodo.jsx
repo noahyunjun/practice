@@ -24,7 +24,7 @@ const InsertTodo = ({ addList }) => {
       <input
         type="text"
         placeholder="할일을 입력해주세요"
-        className="border-2 mr-3"
+        className="border-2 mr-3 bg-white dark:bg-gray-700 border-gray-500 dark:border-gray-600"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
         onKeyDown={enterEvent}
