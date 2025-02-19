@@ -23,7 +23,7 @@ const RoutingPage = () => {
   }, [darkMode]);
 
   return (
-    <div className="flex items-center justify-center flex-col dark:bg-gray-800 h-screen">
+    <div className="flex items-center justify-center flex-col dark:bg-gray-900 h-screen">
       <div className="font-bold text-2xl dark:text-white">
         Hyeon Jun's Projects
       </div>
