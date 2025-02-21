@@ -1,6 +1,6 @@
 import React from "react";
 import NavigationButton from "./NavigationButton";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 import useDarkMode from "./components/Store/useDarkMode";
 
@@ -11,10 +11,8 @@ const links = [
 ];
 
 const RoutingPage = () => {
-  const [darkMode, setDarkMode] = useState(
-    localStorage.getItem("theme") === "dark"
-  );
   const { theme, setTheme } = useDarkMode();
+
   useEffect(() => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
@@ -31,13 +29,6 @@ const RoutingPage = () => {
         Hyeon Jun's Projects
       </div>
       <div>
-        <button
-          className="mt-5 px-4 py-2 bg-gray-300 dark:bg-gray-700 text-black dark:text-white rounded"
-          onClick={() => setDarkMode(!darkMode)}
-        >
-          {darkMode === "dark" ? "라이트 모드" : "다크 모드"}
-        </button>
-
         <button
           className="mt-5 px-4 py-2 bg-gray-300 dark:bg-gray-700 text-black dark:text-white rounded"
           onClick={() => setTheme()}
