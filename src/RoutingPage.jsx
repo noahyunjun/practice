@@ -1,6 +1,9 @@
 import React from "react";
 import NavigationButton from "./NavigationButton";
 import { useState, useEffect } from "react";
+
+import useDarkMode from "./components/Store/useDarkMode";
+
 const links = [
   { path: "/game", label: "Tic-Tac-Toe" },
   { path: "/Todo", label: "Todo List" },
@@ -11,16 +14,16 @@ const RoutingPage = () => {
   const [darkMode, setDarkMode] = useState(
     localStorage.getItem("theme") === "dark"
   );
-
+  const { theme, setTheme } = useDarkMode();
   useEffect(() => {
-    if (darkMode) {
+    if (theme === "dark") {
       document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");
     } else {
       document.documentElement.classList.remove("dark");
       localStorage.setItem("theme", "light");
     }
-  }, [darkMode]);
+  }, [theme]);
 
   return (
     <div className="flex items-center justify-center flex-col dark:bg-gray-900 h-screen">
@@ -32,7 +35,14 @@ const RoutingPage = () => {
           className="mt-5 px-4 py-2 bg-gray-300 dark:bg-gray-700 text-black dark:text-white rounded"
           onClick={() => setDarkMode(!darkMode)}
         >
-          {darkMode ? "라이트 모드" : "다크 모드"}
+          {darkMode === "dark" ? "라이트 모드" : "다크 모드"}
+        </button>
+
+        <button
+          className="mt-5 px-4 py-2 bg-gray-300 dark:bg-gray-700 text-black dark:text-white rounded"
+          onClick={() => setTheme()}
+        >
+          {theme === "dark" ? "라이트 모드" : "다크모드"}
         </button>
       </div>
       <div className="flex flex-col items-center gap-4">

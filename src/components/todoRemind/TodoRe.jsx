@@ -14,7 +14,6 @@ const TodoRe = () => {
       <InsertTodo items={todos} addList={addTodo} />
       <ListItem items={todos} delList={delTodo} onClick={checkIsDone} />
       <Button name="Clear!" className="mt-4" onClick={clearTodoList} />
-
       <NavigationButton key="/" path="/" label="Home" />
     </div>
   );
