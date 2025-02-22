@@ -1,8 +1,7 @@
 import React from "react";
 import NavigationButton from "./NavigationButton";
-import { useEffect } from "react";
 
-import useDarkMode from "./components/Store/useDarkMode";
+import useDarkStore from "./components/Store/useDarkStore";
 
 const links = [
   { path: "/game", label: "Tic-Tac-Toe" },
@@ -11,17 +10,7 @@ const links = [
 ];
 
 const RoutingPage = () => {
-  const { theme, setTheme } = useDarkMode();
-
-  useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, [theme]);
+  const { theme, setTheme } = useDarkStore();
 
   return (
     <div className="flex items-center justify-center flex-col dark:bg-gray-900 h-screen">
