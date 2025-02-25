@@ -9,9 +9,6 @@ const links = [
 const RoutingPage = () => {
   return (
     <div className="flex items-center justify-center flex-col dark:bg-gray-900 h-screen">
-      <div className="font-bold text-2xl dark:text-white">
-        Hyeon Jun's Projects
-      </div>
       <div className="flex flex-col items-center gap-4">
         {links.map(({ path, label }) => (
           <NavigationButton
