@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Game from "./components/tiktaktok/Game";
+import Game from "./tiktaktok/Game";
 import RoutingPage from "./RoutingPage";
-import TodoRemind from "./components/todoRemind/TodoRe";
+import Todo from "./todoList/Todo";
 
 const Router = () => {
   return (
@@ -9,7 +9,7 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<RoutingPage />} />
         <Route path="/game" element={<Game />} />
-        <Route path="/TodoRemind" element={<TodoRemind />} />
+        <Route path="/todo" element={<Todo />} />
       </Routes>
     </BrowserRouter>
   );

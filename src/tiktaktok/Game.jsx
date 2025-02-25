@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Board from "./Board";
-import NavigationButton from "../../NavigationButton";
+import NavigationButton from "../NavigationButton";
 
 const Game = () => {
   const [history, setHistory] = useState([

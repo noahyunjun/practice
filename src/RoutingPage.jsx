@@ -1,11 +1,11 @@
 import React from "react";
 import NavigationButton from "./NavigationButton";
 
-import useDarkStore from "./components/Store/useDarkStore";
+import useDarkStore from "./Store/useDarkStore";
 
 const links = [
   { path: "/game", label: "Tic-Tac-Toe" },
-  { path: "/TodoRemind", label: "Todo Remind" },
+  { path: "/todo", label: "Todo Remind" },
 ];
 
 const RoutingPage = () => {

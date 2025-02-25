@@ -1,10 +1,10 @@
 import InsertTodo from "./components/InsertTodo";
 import ListItem from "./components/ListItem";
-import useTodoStore from "../Store/useTodoStore";
+import useTodoStore from "./Store/useTodoStore";
 import Button from "./components/Button";
-import NavigationButton from "../../NavigationButton";
+import NavigationButton from "../NavigationButton";
 
-const TodoRe = () => {
+const Todo = () => {
   const { todos, addTodo, delTodo, checkIsDone, clearTodoList } =
     useTodoStore();
 
@@ -19,4 +19,4 @@ const TodoRe = () => {
   );
 };
 
-export default TodoRe;
+export default Todo;
