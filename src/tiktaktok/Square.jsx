@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 const Square = ({ value, onSquareClick, className }) => {
   return (
     <button
+      type="button"
       className={`w-12 h-12 flex items-center justify-center border border-gray-400 
       text-lg font-bold ${className}`}
       onClick={onSquareClick}

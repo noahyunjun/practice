@@ -7,7 +7,7 @@ const ListItem = ({ items, delList, onClick }) => {
     <div className="mt-8">
       <ul>
         {items.map((item, index) => (
-          <div className="flex items-center" key={index}>
+          <div className="flex items-center" key={item.id}>
             <input
               type="radio"
               className="mr-5"
@@ -15,7 +15,7 @@ const ListItem = ({ items, delList, onClick }) => {
               onClick={() => onClick(item.id)}
             />
             <div className="w-6">{index + 1}</div>
-            <li key={index} className="2-64">
+            <li key={item.id} className="2-64">
               {item.text}
             </li>
             <Button

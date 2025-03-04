@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 const Button = ({ name, onClick, className, disabled = false }) => {
   return (
     <button
+      type="button"
       className={`px-3 py-1 rounded-full font-mono text-white 
                   bg-blue-500 dark:bg-blue-700 
                   hover:bg-blue-600 dark:hover:bg-blue-800 

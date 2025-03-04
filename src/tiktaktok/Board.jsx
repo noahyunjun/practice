@@ -52,6 +52,7 @@ const Board = ({ xIsNext, squares, onPlay }) => {
       <div className="grid grid-cols-3 gap-1">
         {squares.map((value, index) => (
           <Square
+            // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
             key={index}
             value={value}
             onSquareClick={() => handleClick(index)}

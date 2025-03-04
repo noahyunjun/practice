@@ -5,6 +5,7 @@ const ThemeButton = ({ className }) => {
   const { theme, setTheme } = useDarkStore();
   return (
     <button
+      type="button"
       className={` px-4 py-2 bg-gray-300 dark:bg-gray-700 text-black dark:text-white rounded  ${className}`}
       onClick={() => setTheme()}
     >
@@ -13,6 +14,8 @@ const ThemeButton = ({ className }) => {
   );
 };
 
-ThemeButton.propTypes = {};
+ThemeButton.propTypes = {
+  className: PropTypes.string,
+};
 
 export default ThemeButton;

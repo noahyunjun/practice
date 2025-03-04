@@ -29,10 +29,12 @@ const Game = () => {
   }
 
   const moves = history.map((step, move) => {
-    let description =
+    const description =
       move > 0 ? `Go to move #${move} ${step.location}` : "Go to game start";
     return (
+      // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
       <li key={move} className="mb-2">
+        {/* biome-ignore lint/a11y/useButtonType: <explanation> */}
         <button
           onClick={() => jumpTo(move)}
           className="px-3 py-1 bg-blue-500 dark:bg-blue-700 text-white rounded hover:bg-blue-600 dark:hover:bg-blue-800"
