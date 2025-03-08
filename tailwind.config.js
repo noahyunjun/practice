@@ -7,11 +7,11 @@ export default {
       colors: {
         bg: {
           DEFAULT: "white",
-          dark: "#1a202c", // 다크 모드 배경색
+          dark: "#1a202c",
         },
         text: {
           DEFAULT: "black",
-          dark: "white", // 다크 모드 텍스트 색상
+          dark: "white",
         },
       },
     },
