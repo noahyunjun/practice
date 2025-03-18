@@ -1,3 +1,3 @@
-# React + Vite + Zustand
+# Frontend Code Capsule
 
-## 상태관리 및 여러 기능들을 테스트하는 레포입니다
+### 하고싶은거 때려 넣는 레포
